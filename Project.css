@@ -1,0 +1,37 @@
+ul {
+    margin: 0%;
+    padding: 0%;
+}
+
+.project_list li {
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 20%;
+    min-height: 50px;
+    text-align: left;
+    padding-top: 150px;
+}
+
+.project_list a:link {
+    color: black;
+    text-decoration: none;
+}
+
+.project_list a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+#project1 {
+    background-image: url(Images/project1.png);
+}
+
+#project2 {
+    background-image: url(Images/project2.png);
+}
+
+#project3 {
+    background-image: url(Images/project3.png);
+}

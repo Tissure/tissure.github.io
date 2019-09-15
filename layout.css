@@ -1,0 +1,124 @@
+html, body {
+    background-color: rgb(14, 10, 68);
+    margin: 0;
+}
+
+#wrapper {
+    background-color: white;
+    min-width: 375px;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+    clear: both;
+    height: 100%;
+    min-height: 500px;
+}
+
+main header {
+    font-size: 1.7em;
+}
+
+#left {
+    float: left;
+    margin-left: 10%;
+    width: 35%;
+}
+
+#right {
+    margin-left: 50%;
+}
+
+ul {
+    list-style: none;
+}
+
+#nav {
+    background-color: rgb(45, 143, 255);
+    padding-bottom: 0px;
+    min-height: 32px;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+nav ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.pages li {
+    float: left;
+    display: block;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 0px;
+}
+
+.pages a {
+    transition: background-color 1s;
+}
+
+.pages a:link {
+    color: black;
+    text-decoration: none;
+}
+
+.pages a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.pages a:hover {
+    background-color: rgb(19, 94, 180);
+}
+
+.icons li {
+    float: right;
+    text-align: center;
+    display: block;
+}
+
+.icons a:link {
+    text-decoration: none;
+}
+
+.icons a:visited {
+    text-decoration: none;
+}
+
+footer {
+    background-color: rgb(45, 143, 255);
+    color: rgb(133, 206, 255);
+    padding: 10px;
+    clear: both;
+    text-align: center;
+}
+
+@media only screen and (max-width:1024px) {
+    .pages {
+        float: none;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .pages li {
+        float: none;
+        display: inline;
+    }
+    .icons {
+        display: none;
+    }
+    main {
+        text-align: center;
+    }
+    #left {
+        float: none;
+        width: 90%;
+        margin: 0 auto;
+    }
+    #right {
+        float: none;
+        width: 100%;
+        margin: 0;
+    }
+}
