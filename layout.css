@@ -57,6 +57,7 @@ nav ul {
 
 .pages a {
     transition: background-color 1s;
+    margin: 0;
 }
 
 .pages a:link {
@@ -77,6 +78,10 @@ nav ul {
     float: right;
     text-align: center;
     display: block;
+}
+
+.icons a {
+    margin: 0;
 }
 
 .icons a:link {
