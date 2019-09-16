@@ -78,6 +78,7 @@ nav ul {
     float: right;
     text-align: center;
     display: block;
+    max-height: 32px;
 }
 
 .icons a {
