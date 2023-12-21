@@ -1,13 +1,26 @@
-html, body {
-    background-color: rgb(14, 10, 68);
+:root {
+    --bg-color-start: #F2FAEF;
+    --bg-color-end: #325342;
+    --bg-color-card: #473e42;
+    --nav-font-color: #325342;
+    --landing-font-color: #325342;
+    --heading-font-color: #F2FCF0;
+    --body-font-color: #F2FCF0;
+    --link-color: #ACE8E5;
+    font-family: 'Rubik', sans-serif;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+    background-image: linear-gradient(var(--bg-color-start), var(--bg-color-end));
     margin: 0;
 }
 
 #wrapper {
-    background-color: white;
+    /* background-color: white;
     min-width: 375px;
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; */
 }
 
 main {
@@ -35,96 +48,146 @@ ul {
 }
 
 #nav {
-    background-color: rgb(45, 143, 255);
-    padding-bottom: 0px;
-    min-height: 32px;
-    font-size: 1.5em;
+    /* background-color: rgb(45, 143, 255); */
+    position: fixed;
+    width: 100%;
     margin: 0;
+    padding-bottom: 0px;
+    top: 0;
+    min-height: 32px;
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 1.5em;
+    color: var(--nav-font-color);
 }
 
-nav ul {
+/* nav ul {
     margin: 0px;
     padding: 0px;
-}
+} */
+
 
 .pages li {
-    float: left;
+    float: right;
     display: block;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-right: 0px;
+    margin: 0px;
 }
 
 .pages a {
     transition: background-color 1s;
     margin: 0;
+    padding: 20px;
+    color: var(--nav-font-color)
 }
 
 .pages a:link {
-    color: black;
     text-decoration: none;
 }
 
 .pages a:visited {
-    color: black;
     text-decoration: none;
 }
 
 .pages a:hover {
-    background-color: rgb(19, 94, 180);
+    /* background-color: var(--link-color); */
 }
 
-.icons li {
-    float: right;
+
+.main_header {
+    /* background-image: url("Images/OPS34L0.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+    margin: auto;
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+    display: flex;
+
+}
+
+.main_box {
+    margin-top: 20px;
+    height: 95%;
+    min-height: 500px;
+}
+
+.main_text {
+    /* height: 50%; */
+    margin: auto;
+    width: 100%;
+    padding: 10px;
     text-align: center;
-    display: block;
-    max-height: 32px;
+    font-family: 'Rubik Mono One', sans-serif;
+    color: var(--landing-font-color);
 }
 
-.icons a {
-    margin: 0;
+h1 {
+    font-size: 5em;
+    /* padding-top: 14%; */
 }
 
-.icons a:link {
+h1,
+h2 {
+    /* font-weight: 200; */
+    margin: 0px;
+}
+
+/* table {
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+table a:link {
     text-decoration: none;
 }
 
-.icons a:visited {
+table a:visited {
     text-decoration: none;
-}
+} */
 
 footer {
-    background-color: rgb(45, 143, 255);
-    color: rgb(133, 206, 255);
+    /* background-color: rgb(45, 143, 255); */
+    /* color: rgb(133, 206, 255); */
     padding: 10px;
     clear: both;
     text-align: center;
 }
 
 @media only screen and (max-width:1024px) {
-    .pages {
+    table {
+        margin: 0 auto;
+    }
+
+    /* .pages {
         float: none;
         text-align: center;
         margin: 0 auto;
     }
+
     .pages li {
         float: none;
         display: inline;
     }
+
     .icons {
         display: none;
     }
+
     main {
         text-align: center;
     }
+
     #left {
         float: none;
         width: 90%;
         margin: 0 auto;
     }
+
     #right {
         float: none;
         width: 100%;
         margin: 0;
-    }
+    } */
 }
