@@ -178,12 +178,12 @@ nav ul {
 }
 
 .project_card>*:nth-child(1) {
-    width: round(calc(100% / 3 * 2 - 16rem), 10px);
+    width: calc(100% / 3 * 2 - 16rem);
     padding: 72px;
 }
 
 .project_card>*:nth-child(2) {
-    width: round(calc(100% / 2 - 10rem), 10px);
+    width: calc(100% / 2 - 10rem);
 }
 
 .project_title {
