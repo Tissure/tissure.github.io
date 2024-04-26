@@ -15,6 +15,7 @@
     <div id="wrapper">
         <nav id="nav">
             <ul class="nav pages">
+                <li><a href="resume/Resume.pdf">RESUME</a></li>
                 <li><a href="#contact">CONTACT</a></li>
                 <li><a href="#skills">SKILLS</a></li>
                 <li><a href="#projects">PROJECTS</a></li>
@@ -30,6 +31,43 @@
             </div>
             <div class="main_box">
                 <div id="projects">
+                    <!-- <div class="project_card" id="Solarium">
+                        <div>
+                            <div class="project_title">
+                                SOLARIUM
+                            </div>
+                            <div class="project_time">
+                                SCHOOL -- 2024
+                            </div>
+                            <div class="project_body">
+                                A 3D puzzle-adventure game where players are tasked with repairing an ecological
+                                facility in a solarpunk environment. Built in Swift utilizing Scenekit for iOS devices.
+                            </div>
+                            <div class="image_list">
+                                <ul class="images">
+                                    <li style="background-color: #dff">
+                                        <img class="thumbnail" src="images/S1.png" alt="">
+                                    </li>
+                                    <li style="background-color: #fdf">
+                                        <img class="thumbnail" src="images/S2.png" alt="">
+                                    </li>
+                                    <li style="background-color: #ffd">
+                                        <img class="thumbnail" src="images/S3.png" alt="">
+                                    </li>
+                                    <li style="background-color: #dff">
+                                        <img class="thumbnail" src="images/S4.png" alt="">
+                                    </li>
+                                    <li style="background-color: #dff">
+                                        <img class="thumbnail" src="images/S5.gif" alt="images/S5_anim.gif">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="project_image">
+                            <img src="images/S1.png" alt="">
+                        </div>
+
+                    </div> -->
                     <div class="project_card" id="BoomBlocks">
                         <div>
                             <div class="project_title">
@@ -60,13 +98,13 @@
                                         <img class="thumbnail" src="images/BB4.png" alt="">
                                     </li>
                                     <li style="background-color: #dff">
-                                        <img class="thumbnail" src="images/BB6.gif" alt="">
+                                        <img class="thumbnail" src="images/BB6.gif" alt="images/BB6_anim.gif">
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="project_image">
-                            <img src="images/BB1.png" alt="">
+                            <img src="images/BB2.png" alt="">
                         </div>
 
                     </div>
@@ -210,7 +248,7 @@
                     <ul>
                         <li>
                             <p class="category">Languages:</p>
-                            <p>C++, C#, C, Java, SQL</p>
+                            <p>C++, C#, C, Java, Swift</p>
                         </li>
                         <li>
                             <p class="category">Engines:</p>
@@ -218,11 +256,11 @@
                         </li>
                         <li>
                             <p class="category">SDK’s & Libraries:</p>
-                            <p>OpenGL, Vuforia, Mixed Reality Toolkit, Raylib, ImGui</p>
+                            <p>OpenGL, Scenekit, Vuforia, Mixed Reality Toolkit, Raylib, ImGui</p>
                         </li>
                         <li>
                             <p class="category">Web & Mobile:</p>
-                            <p>HTML/CSS/JS, Node.JS, Express, jQuery, React, Android</p>
+                            <p>HTML/CSS/JS, Node.JS, Express, jQuery, React, Android, iOS</p>
                         </li>
                         <li>
                             <p class="category">VCS & CI/CD:</p>
@@ -231,8 +269,9 @@
                     </ul>
                 </div>
                 <div id="contact">
-                    <a href="">Linkedin</a>
-                    <a href="">GitHub</a>
+                    <a href="https://www.linkedin.com/in/kyleng7512/">Linkedin</a>
+                    <a href="https://github.com/tissure">GitHub</a>
+                    <a href="resume/Resume.pdf">Resume</a>
                 </div>
             </div>
         </main>
@@ -251,7 +290,7 @@
             click: function () {
                 let parentId = $(this).closest('.project_card').attr('id');
                 console.log(parentId);
-                let thumbnailURL = $(this).attr('src');
+                let thumbnailURL = $(this).attr('alt') === "" ? $(this).attr('src') : $(this).attr('alt');
 
                 // Replace main image's src attribute value  
                 // by clicked thumbanail's src attribute value 
