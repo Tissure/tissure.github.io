@@ -679,7 +679,7 @@ const hn = new Set,
 
 function ka(e, t, r, n = {}) {
     function a(i) { if (n.capture || Ze.call(t, i), !i.cancelBubble) return ba(() => r == null ? void 0 : r.call(this, i)) }
-    return e.startsWith("pointer") || e.startsWith("touch") || e === "wheel" ? fr(() => { t.addEventListener(e, a, n) }) : t.addEventListener(e, a, n), a
+    return e.startsWith("pointer") || e.startsWith("mouse") || e.startsWith("touch") || e === "wheel" ? fr(() => { t.addEventListener(e, a, n) }) : t.addEventListener(e, a, n), a
 }
 
 function yt(e, t, r, n, a) {
@@ -692,11 +692,11 @@ function vr(e) { for (var t = 0; t < e.length; t++) hn.add(e[t]); for (var r of 
 
 function Ze(e) {
     var M;
-    var t = this,
-        r = t.ownerDocument,
-        n = e.type,
-        a = ((M = e.composedPath) == null ? void 0 : M.call(e)) || [],
-        i = a[0] || e.target,
+    var t = this, // Document div#app
+        r = t.ownerDocument, // HTML doc
+        n = e.type, // input type
+        a = ((M = e.composedPath) == null ? void 0 : M.call(e)) || [], // card object array
+        i = a[0] || e.target, // card img or tapped item
         o = 0,
         u = e.__root;
     if (u) {
@@ -1255,6 +1255,7 @@ function Kt(e, t) {
                 h = s => {
                     var f = Qa();
                     wt(f, 21, () => v(o).split("|"), tr, (m, C, S) => {
+                        // touch event for setting game size on curse cards
                         var E = Za();
                         const M = ue(() => ["small", "medium", "large"][S]);
                         E.__pointerdown = g => { g.stopPropagation(), d.gameSize = S };
@@ -1309,14 +1310,18 @@ function zr(e, t) {
         }
     }
 
-    function S(k) {
+    function S(k) { // Handles size selection (s-m-l)
         var j;
         f && ((j = t.onClick) == null || j.call(t)), s = null
     }
-    var E = si();
+    var E = si(); // Card body
     let M;
     var P = w(E);
-    P.__pointerdown = m, P.__pointermove = C, P.__pointerup = S;
+    // Drawn card events - card__body events funny setup
+    P.__pointerdown = m, P.__pointermove = C;//, P.__pointerup = S;
+    //P.__pointerdown = m, P.__pointermove = C;//, 
+    P.__mouseup = S;
+    // P.__touchend = S;
     var g = w(P); {
         var A = k => {
             var j = ai(),
@@ -1336,9 +1341,12 @@ function zr(e, t) {
                 var Ce = z => {
                     var te = ti();
                     wt(te, 21, () => t.card.durations, tr, (_, y, x) => {
+                        // touch event for selecting game size on time bonus
                         var N = ei();
                         const W = ue(() => ["small", "medium", "large"][x]);
                         N.__pointerdown = pe => { pe.stopPropagation(), d.gameSize = x };
+                        // N.__mousedown = pe => { pe.stopPropagation(), d.gameSize = x };
+                        // N.__touchstart = pe => { pe.stopPropagation(), d.gameSize = x };
                         var ce = w(N),
                             ke = w(ce),
                             De = D(ce, 2),
@@ -1404,12 +1412,14 @@ function zr(e, t) {
         };
         V(F, k => { r() && k(J) })
     }
-    G(() => { bt(E, 1, `card${r() ? " is-active" : ""}${v(h) ? " is-flipped" : ""}${a() ? " is-animated" : ""}`, "svelte-2cgj1n"), M = pn(E, "", M, { "--card-y": v(p), "--card-scale": u() }) }), yt("transitionend", E, function (...k) {
+    G(() => {
+        bt(E, 1, `card${r() ? " is-active" : ""}${v(h) ? " is-flipped" : ""}${a() ? " is-animated" : ""}`, "svelte-2cgj1n"), M = pn(E, "", M, { "--card-y": v(p), "--card-scale": u() })
+    }), yt("transitionend", E, function (...k) {
         var j;
         (j = t.onTransitionEnd) == null || j.apply(this, k)
     }), mn(E, "clientHeight", c), L(e, E), Ct()
 }
-vr(["pointerdown", "pointermove", "pointerup"]);
+vr(["pointerdown", "pointermove", "pointerup", "mouseup", "touchend"]);
 var ci = R('<div class="menu-trigger"><!></div> <div><!></div>', 1);
 
 function li(e, t) {
@@ -1455,7 +1465,12 @@ function ki(e, t) {
         u = Y(!1),
         c = Y(!1);
 
-    function l(_, y = 0) { d.hand.push({ uid: Math.random(), card: _, y0: y - v(n), discarded: !1 }), T(a, d.hand.length - 1) }
+    function l(_, y = 0) {
+        d.hand.push(
+            {
+                uid: Math.random(), card: _, y0: y - v(n), discarded: !1
+            }), T(a, d.hand.length - 1)
+    }
 
     function p(_) { i = [_.clientX, _.clientY], T(u, !1), T(c, !1) }
 
@@ -1468,7 +1483,7 @@ function ki(e, t) {
         }
     }
 
-    function s(_) {
+    function s(_) { // draw Card
         if (i = null, T(u, !0), T(c, !0), setTimeout(() => { T(o, 0) }, 0), v(o) > 80) {
             T(c, !1);
             const y = d.deck.draw();
@@ -1480,7 +1495,15 @@ function ki(e, t) {
 
     function m() { return d.hand.filter(({ discarded: _ }) => !_).length }
 
-    function C(_) { const y = Nr(_); if (d.hand[_].discarded) return -v(n); if (v(a) === null) { const x = (v(r) - 20) / Math.max(6, m()); return v(r) - x * (m() - y) } return v(a) === _ ? 20 + Math.min(0, v(o)) : v(r) - 10 * (m() - y) - 10 }
+    function C(_) {
+        // Calculate post
+        const y = Nr(_); if (d.hand[_].discarded) return -v(n);
+        if (v(a) === null) {
+            const x = (v(r) - 20) / Math.max(6, m());
+            return v(r) - x * (m() - y)
+        }
+        return v(a) === _ ? 20 + Math.min(0, v(o)) : v(r) - 10 * (m() - y) - 10
+    }
 
     function S(_) { const y = Nr(_); return v(a) === null || v(a) === _ ? 1 : 1 - .01 * (d.hand.length - y) }
 
@@ -1495,6 +1518,8 @@ function ki(e, t) {
             y = _;
         _ !== y && window.history.replaceState(null, "", y)
     });
+
+    // restore state
     const M = window.localStorage.getItem("state"),
         P = window.localStorage.getItem("history");
     if (M) try { _r(M) } catch (_) { console.error(_) }
@@ -1503,6 +1528,7 @@ function ki(e, t) {
         A = Ee(g),
         F = w(A),
         J = w(F);
+    // Menu setup
     li(J, {
         trigger: (y, x = Fr) => {
             var N = di();
@@ -1573,15 +1599,31 @@ function ki(e, t) {
                 };
                 V(bn, H => { d.lang === "en" && H(kn) })
             }
-            G((H, ie, qe, Oe, Ot, Rt) => { O(ce, H), O(ze, ie), O(le, qe), O(Ke, Oe), O(gn, Ot), O(yn, Rt) }, [() => b("shuffle-deck"), () => b("save-state"), () => b("load-state"), () => b("map"), () => b("rules"), () => b("curses")]), L(y, N)
+            G((H, ie, qe, Oe, Ot, Rt) => {
+                O(ce, H), O(ze, ie), O(le, qe), O(Ke, Oe), O(gn, Ot), O(yn, Rt)
+            }, [
+                () => b("shuffle-deck"),
+                () => b("save-state"),
+                () => b("load-state"),
+                () => b("map"),
+                () => b("rules"),
+                () => b("curses")
+            ]), L(y, N)
         }
     });
+
+
     var k = D(F, 2),
         j = w(k),
         ee = D(k, 2),
         Z = w(ee),
         B = D(A, 2);
-    B.__pointerdown = _ => { d.touch && _.currentTarget.setPointerCapture(_.pointerId), p(_) }, B.__pointermove = h, B.__pointerup = s;
+    // div.app event wacky card draw setup
+    B.__pointerdown = _ => { d.touch && _.currentTarget.setPointerCapture(_.pointerId), p(_) }, B.__pointermove = h;//, B.__pointerup = s;
+    // B.__mousedown = _ => { d.touch && _.currentTarget.setPointerCapture(_.pointerId), p(_) }, B.__mousemove = h, 
+    B.__mouseup = s;
+    // B.__touchstart = _ => { d.touch && _.currentTarget.setPointerCapture(_.pointerId), p(_) }, B.__touchmove = h, 
+    B.__touchend = s;
     var Ce = w(B); {
         var ye = _ => {
             var y = yi(),
@@ -1638,5 +1680,12 @@ function ki(e, t) {
     const te = ue(() => v(o) - v(n));
     zr(z, { flipped: !0, get animated() { return v(c) }, get y() { return v(te) }, get height() { return v(n) }, set height(_) { T(n, _, !0) } }), G((_, y, x, N) => { O(j, `${_ ?? ""} ${d.hand.length ?? ""} / ${d.handLimit ?? ""}`), O(Z, `${y ?? ""} ${x ?? ""} ${N ?? ""}`) }, [() => b("in-hand"), () => b("time-bonuses"), Va, () => b("min")]), yt("pointercancel", B, f), yt("pointerleave", B, f), mn(B, "clientHeight", _ => T(r, _)), L(e, g), Ct()
 }
-vr(["click", "pointerdown", "pointermove", "pointerup"]);
+vr(["click",
+    // "mousedown", "mousemove", 
+    "mouseup",
+    "pointerdown", "pointermove"//, "pointerup"//, "pointercancel"
+    // , "touchstart"
+    // , "touchmove"
+    , "touchend"
+]);
 Ta(ki, { target: document.getElementById("app") });
