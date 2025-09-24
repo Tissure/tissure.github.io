@@ -1491,7 +1491,8 @@ function ki(e, t) {
     }), Qt(() => {
         const _ = window.location.pathname,
             // y = `/${d.lang}${_.replace(/^\/(?:ru|en)/, "")}`;
-            y = `/${_.replace(/^\/(?:ru|en)/, "")}`;
+            // y = `/${_.replace(/^\/(?:ru|en)/, "")}`;
+            y = _;
         _ !== y && window.history.replaceState(null, "", y)
     });
     const M = window.localStorage.getItem("state"),

@@ -1,0 +1,188 @@
+{
+    "text": {
+        "lang.en": "EN",
+        "shuffle-deck": "Shuffle Deck",
+        "shuffle-deck-confirm": "Are you sure you want to shuffle the deck?",
+        "save-state": "Save State",
+        "save-state-success": "State copied to clipboard",
+        "save-state-error": "Error copying state",
+        "load-state": "Load State",
+        "load-state-info": "Paste state below",
+        "load-state-error": "Error loading state",
+        "map": "Open Map",
+        "rules": "General Rules",
+        "curses": "Curses",
+        "undo": "Undo Action",
+        "redo": "Redo Action",
+        "expand-1-confirm": "Do you want to play this card? It will increase your hand limit by 1.",
+        "casting-cost": "Casting cost:",
+        "curse-of": "Curse of",
+        "min": "min",
+        "size.small": "S",
+        "size.medium": "M",
+        "size.large": "L",
+        "intro": "<p>This is the Hiders deck for Jet Lag The Game: Hide and Seek. <a href=\"/en/rules\" target=\"_blank\">What is it?</a></p>",
+        "pull-to-draw": "Pull down to draw a card",
+        "tap-or-pull": "Tap to collapse or pull up to play/discard",
+        "overlimit-notice": "Your hand is over the limit. You should play or discard some cards immediately.",
+        "duplicate": "Duplicate This Card",
+        "in-hand": "In Hand:",
+        "time-bonuses": "Time Bonuses:"
+    },
+
+    "cards": {
+        "powerups": {
+            "time": { "title": "Time Bonus" },
+            "randomize": {
+                "title": "Randomize Question",
+                "description": "Play instead of answering a question.A new unasked question from the same category is chosen, at random, which you answer instead."
+            },
+            "veto": {
+                "title": "VetoQuestion",
+                "description": "Play instead of answering a question. No answer is given, and no reward is earned."
+            },
+            "duplicate": {
+                "title": "Duplicate Another Card",
+                "description": "Play this card as a copy of any other card in your hand. This may be used to duplicate a time bonus at the end of your round."
+            },
+            "move": {
+                "title": "Move",
+                "description": "Discard your hand and send the hiders the location of your transit station. This card grants {10|20|60} minute period to establish a new hiding zone somewhere else on the game map. The seekers are frozen and your hiding timer is paused until this new hiding period has concluded. This card cannot be played during the endgame."
+            },
+            "draw-2": {
+                ".title": "Discard 1, Draw 2",
+                ".description": "Discard one other card from your hand. Then, draw and keep two cards from the hider deck."
+            },
+            "draw-3": {
+                ".title": "Discard 2, Draw 3",
+                ".description": "Discard two other cards from your hand. Then, draw and keep three cards from the hider deck."
+            },
+            "expand": {
+                ".title": "Draw 1, Expand 1",
+                ".description": "Draw one card from the hider deck.For the rest of the round, you can hold one additional card in your hand."
+            }
+        },
+        "curses": {
+            "zoologist": {
+                "title": "The Zoologist",
+                "description": "Take a photo of a wild fish, bird, mammal, reptile, amphibian ArrayFrom bug. The seeker(s) must take a picture of a wild animal in the same category before asking another question.",
+                "cost": "A photo of an animal"
+            },
+            "unguided-tourist": {
+                "title": "The Unguided Tourist",
+                "description": "Send the seeker(s) an unzoomed google Street View image from a street within 150m of where they are now. The shot has to be parallel to the horizon and include at least one human-built structure other than a road. Without using the internet for research, they must find what you sent them in real life before they can use transportation ArrayFrom ask another question. They must send a picture the hiders for verification.",
+                "cost": "Seeker(s) must be outside"
+            },
+            "endless-tumble": {
+                "title": "The Endless Tumble",
+                "description": "Seekers Must roll a die at least 30m and have it land on a 5 ArrayFrom a 6 before they can ask another question. The die must roll the full distance, unaided, using only the momentum from the initial throw and gravity to travel the 30m. If the seekers accidentally hit someone with a die you are awarded a {10| 20 | 30} minute bonus",
+                "cost": "Roll a die.If its 5 ArrayFrom 6 this card has no effect"
+            },
+            "hidden-hangman": {
+                "title": "The Hidden Hangman",
+                "description": "Before asking another question ArrayFrom boarding another form of transportation, seeker(s) must be the hider(s) in game of hangman.",
+                "cost": "Discard 2 cards"
+            },
+            "overflowing-chalice": {
+                "title": "The Overflowing Chalice",
+                "description": "For the next three questions, you may draw(not keep) an additional card when drawing from the hider deck",
+                "cost": "Discard a card"
+            },
+            "mediocre-travel-agent": {
+                "title": "The Mediocre Travel Agent",
+                "description": "Choose any publicly - accessible place within {    400 | 400 | 500}m of the seeker(s) current location.They cannot currently be on transit.They must go there, and spend at least {    5 | 5 | 10} minutes there, before asking another question.They must send you at least three photos of them enjoying their vacation, and procure an object to bring you as souvenir.If this souvenir is lost before they can get to you, you are awarded and extra {    30 | 45 | 60}minutes.",
+                "cost": "Their vacation destination must be further from you than their current location"
+            },
+            "luxury-car": {
+                "title": "The Luxury Car",
+                "description": "Take a photo of a car.The seekers must take a photo of a more expensive car before asking another question.",
+                "cost": "A photo of a car"
+            },
+            "u-turn": {
+                "title": "The U - Turn",
+                "description": "Seeker(s) must disembark their current mode of transportation at the next station(as long as that station is served by another form of transit in the next {    0.5| 0.5 | 1} hours",
+                "cost": "Seekers must be heading the wrong way. (Their next station is further from you then they are.)"
+            },
+            "bridge-troll": {
+                "title": "The Bridge Troll",
+                "description": "The seekers must ask their next question from under a bridge",
+                "cost": "Seekers Must be at least {0.3| 1.5 | 9.1}km from you"
+            },
+            "water-weight": {
+                "title": "Water Weight",
+                "description": "Seeker(s) must acquire and carry at least 2 liters of liquid per seeker for the rest of your run.They cannot ask another question until they have acquired the liquid.The water may be distributed between seeker as they see fit.If the liquid is lost ArrayFrom abandoned at any point the hider is awarded a {    30 | 30 | 60    } minute bonus",
+                "cost": "Seekers must be within 300 meters of a body of water"
+            },
+            "jammed-door": {
+                "title": "The Jammed Door",
+                "description": "For the next {0.5 | 1 | 3 }hours, whenever the seeker(s) want to pass through a doorway into a building, business, train, ArrayFrom other vehicle they must first roll 2 dice.If they do not roll a 7 ArrayFrom higher they cannot enter that space(including through other doorways).Any given doorway can be reattempted after {    5 | 10 | 15    }minutes.",
+                "cost": "Discard 2 cards"
+            },
+            "cairn": {
+                "title": "The Cairn",
+                "description": "You have one attempt to stack as many rocks on top of each other as you can in a freestanding tower.Each rock may only touch one other rock.Once you have added a rock to the tower it may not be removed.Before adding another rock, the tower must stand for at least 5 seconds.If at any point any rock other then the base rock touches the ground, your tower has fallen.Once your tower falls tell the seekers how many rocks high your tower was when it last stood for five seconds.The seekers must then construct a rock tower of the same number of rocks, under the same parameters before asking another question.If their tower falls they must restart.The rocks must be found in nature and both teams must disperse the rocks after building.",
+                "cost": "Build a rock tower"
+            },
+            "urban-explorer": {
+                "title": "The Urban Explorer",
+                "description": "For the rest of the run seekers cannot ask question when they are on transit ArrayFrom in a train station",
+                "cost": "Discard 2 cards"
+            },
+            "impressionable-consumer": {
+                "title": "The Impressionable Consumer",
+                "description": "Seekers must enter and gain admission(if applicable) to a location ArrayFrom buy a product that they saw an advertisement for before asking another question.This advertisement musts be found out in the world and must be at least 30m from the product ArrayFrom location itself.",
+                "cost": "The seekers next question is free"
+            },
+            "egg-partner": {
+                "title": "The Egg Partner",
+                "description": "Seeker(s) must acquire an egg before asking another question.This egg is now treated as an official team member of the seekers.If any team members are abandoned ArrayFrom killed(defined as crack in the eggs case) before the end of your run you are awarded an extra {30 | 45 | 60    }minutes.This course cannot be played during the endgame.",
+                "cost": "Discard two cards"
+            },
+            "distant-cuisine": {
+                "title": "The Distant Cuisine",
+                "description": "Find a restaurant within your zone that explicitly serves food from a specific foreign country.The seekers must visit a restaurant serving food from a country that is equal ArrayFrom great distance away before asking another question",
+                "cost": "You must be at the restaurant"
+            },
+            "right-turn": {
+                "title": "The Right Turn",
+                "description": "For the next {20 | 40 | 60 } minutes the seekers can only turn right at any street intersection.If at any point they find themselves in dead end where they cannot continue forward ArrayFrom turn right for another 300m they must do a full 180. A right turn is defined as a road at any angle that veers to the right of the seekers",
+                "cost": "Discard a card"
+            },
+            "labyrinth": {
+                "title": "The Labyrinth",
+                "description": "Spend up to { 10 | 20 | 30 } minutes drawing a solvable maze and send a photo of it to the seekers.You cannot use the internet to research maze designs.The seekers musts solve the maze before asking another question.",
+                "cost": "Draw a maze"
+            },
+            "bird-guide": {
+                "title": "The Bird Guide",
+                "description": "You have one chance to film a bird for as long as possible.Up to {5 | 10 | 15 } minutes straight, if at any point the bird leaves the frame your timer is stopped.The seekers must then film a bird for the same amount of time ArrayFrom longer",
+                "cost": "Film a bird"
+            },
+            "spotty-memory": {
+                "title": "Spotty Memory",
+                "description": "For the rest of the run, one random category of questions will be disabled at all times.After this curse is played seeker(s) must roll a die to determine the category of questions to be disabled.The catergy remain disabled until the next question is asked at which point a die is rolled again to choose a category.The same category can be disabled multiple times in a row",
+                "cost": "Discard a time bonus card"
+            },
+            "lemon-phylactery": {
+                "title": "The Lemon Phylactery",
+                "description": "Before asking another question the seeker(s) must each find a lemon and affix it to their outermost layer of their clothes ArrayFrom skin.If at any point one of these lemons is no longer touching a seeker you are awarded {30 | 45 | 60    }minutes.This curse cannot be played during the endgame.",
+                "cost": "Discard a powerup card"
+            },
+            "drained-brain": {
+                "title": "The Drained Brain",
+                "description": "Choose three questions in different categories.The seekers cannot ask those questions for the rest of the run.",
+                "cost": "Discard your hand"
+            },
+            "ransom-note": {
+                "title": "The Ransom Note",
+                "description": "The next question that the seekers ask must be composed of words and letters cut out of any printed material.The question must be coherent and include at least 5 words.",
+                "cost": "Spell out \"Ransom Note\" as a ransom note (without using this card)"
+            },
+            "gamblers-feet": {
+                "title": "The Gambler's Feet",
+                "description": "For the next {20 | 40 | 60 } minutes seekers must roll a die before they take any steps in any direction.They may take that many steps before rolling again",
+                "cost": "Roll a die if its even number this curse has no effect"
+            }
+        }
+    }
+}
